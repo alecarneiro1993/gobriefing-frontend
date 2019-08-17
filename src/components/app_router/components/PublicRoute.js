@@ -2,14 +2,15 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
-export function PublicRoute({ isAuthenticated, isRestricted, ...props }) {
-  if (isRestricted) {
-    console.log(isRestricted);
-    console.log(props.path);
-
-    return isAuthenticated ? <Redirect to="/home" /> : <Route {...props} />;
-  }
-  return <Route {...props} />;
+export function PublicRoute({
+  isAuthenticated, isRestricted, component: Component, ...rest
+}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => (isAuthenticated && isRestricted ? <Redirect to="/home" /> : <Component {...props} />)}
+    />
+  );
 }
 
 PublicRoute.propTypes = {
