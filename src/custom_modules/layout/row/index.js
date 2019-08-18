@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 
-export function Row({ children, ...rest }) {
+export default function Row({ children, ...rest }) {
   return (
-    <Grid container {...rest}>
+    <Grid container direction="row" {...rest}>
       {children}
     </Grid>
   );

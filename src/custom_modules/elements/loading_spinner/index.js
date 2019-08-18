@@ -8,11 +8,11 @@ const AbsoluteContainer = styled(Box)`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.7);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: CENTER;
+  align-items: CENTER;
 `;
 
-export function LoadingSpinner() {
+export default function LoadingSpinner() {
   return (
     <AbsoluteContainer>
       <CircularProgress />

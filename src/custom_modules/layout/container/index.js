@@ -3,19 +3,21 @@ import PropTypes from "prop-types";
 import { Container as MUIContainer, Grid } from "@material-ui/core";
 import styled from "styled-components";
 
+import { FULL } from "utils/constants";
+
 const ContainerWrapper = styled(MUIContainer)`
-  height: 100vh;
+  height: ${({ height }) => height || "auto"};
   padding: 0;
 `;
 
 const GridWrapper = styled(Grid)`
-  height: 100vh;
+  height: ${FULL};
   padding: 0;
 `;
 
-export function Container({ children, ...rest }) {
+export default function Container({ children, height, ...rest }) {
   return (
-    <ContainerWrapper>
+    <ContainerWrapper height={height}>
       <GridWrapper container {...rest}>
         {children}
       </GridWrapper>
@@ -27,5 +29,10 @@ Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  height: PropTypes.string
+};
+
+Container.defaultProps = {
+  height: "auto"
 };

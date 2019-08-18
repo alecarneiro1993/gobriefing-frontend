@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { PageContainer } from ".";
+import PageContainer from ".";
 
 describe("PageContainer - the main container for pages", () => {
   it("renders without crashing", () => {

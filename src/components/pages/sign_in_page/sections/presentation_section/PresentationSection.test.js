@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { ImageBackground } from "custom_modules";
-import { PresentationSection } from ".";
+import PresentationSection from ".";
 
 describe("PresentationSection", () => {
   it("renders without crashing", () => {

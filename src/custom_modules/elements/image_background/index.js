@@ -3,8 +3,12 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Box } from "@material-ui/core";
 
+import { CENTER } from "utils/constants";
+
 const ImageOverlayColor = styled(Box)`
-  background-color: ${({ color }) => color};
+  background: ${({ color }) => `linear-gradient(${color});`}
+  
+  opacity: 0.7;
   height: 100vh;
 `;
 
@@ -12,7 +16,7 @@ function ImageBackgroundWrapper({ color, src }) {
   return (
     <Box
       style={{
-        backgroundPosition: "center",
+        backgroundPosition: { CENTER },
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         height: "100vh",
@@ -24,7 +28,7 @@ function ImageBackgroundWrapper({ color, src }) {
   );
 }
 
-export function ImageBackground(props) {
+export default function ImageBackground(props) {
   return <ImageBackgroundWrapper {...props} />;
 }
 

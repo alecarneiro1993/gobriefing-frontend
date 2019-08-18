@@ -6,4 +6,4 @@ class RootPage extends React.Component {
   }
 }
 
-export { RootPage };
+export default RootPage;

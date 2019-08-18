@@ -21,4 +21,4 @@ class SignInPage extends React.Component {
   }
 }
 
-export { SignInPage };
+export default SignInPage;

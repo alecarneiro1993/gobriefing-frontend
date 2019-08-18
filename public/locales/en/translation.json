@@ -1,7 +1,8 @@
 {
     "pages": {
         "sign_in": {
-            "heading": "Sign In"
+            "heading": "Sign In",
+            "submit": "Sign In"
         }
     }
 }

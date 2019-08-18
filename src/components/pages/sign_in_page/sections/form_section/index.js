@@ -2,17 +2,22 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { Container, Row, Column, PageHeading } from "custom_modules";
+import { CENTER, FULL } from "utils/constants";
 
-export function FormSection() {
+import SignInForm from "./sign_in_form";
+
+export default function FormSection() {
   const { t } = useTranslation();
   return (
-    <Container alignItems="center">
-      <Row alignContent="center">
-        <Column xs={8}>
-          <PageHeading>{t("pages.sign_in.heading")}</PageHeading>
+    <Container height={FULL} alignContent={CENTER}>
+      <Row justify={CENTER} styles={{ padding: "3rem" }}>
+        <Column xs={10}>
+          <PageHeading align={CENTER}>{t("pages.sign_in.heading")}</PageHeading>
         </Column>
-        <Column xs={8}>
-          <PageHeading>{t("pages.sign_in.heading")}</PageHeading>
+      </Row>
+      <Row justify={CENTER}>
+        <Column xs={10}>
+          <SignInForm />
         </Column>
       </Row>
     </Container>

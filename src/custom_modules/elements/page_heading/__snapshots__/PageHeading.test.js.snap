@@ -3,6 +3,7 @@
 exports[`PageHeading renders without crashing 1`] = `
 <WithStyles(ForwardRef(Typography))
   component="h1"
+  gutterBottom={true}
   variant="h4"
 >
   Heading Test

@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { PageHeading } from ".";
+import PageHeading from ".";
 
 describe("PageHeading", () => {
   it("renders without crashing", () => {

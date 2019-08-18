@@ -8,7 +8,7 @@ const PageWrapper = styled(Container)`
   padding: 0;
 `;
 
-export function PageContainer(props) {
+export default function PageContainer(props) {
   return (
     <StylesProvider injectFirst>
       <PageWrapper {...props} component="main" />
