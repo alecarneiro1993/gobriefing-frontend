@@ -8,9 +8,14 @@ import { createStore } from "redux";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+  () => {} /* preloadedState, */,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+/* eslint-enable */
 render(
-  // eslint-disable-next-line react/jsx-filename-extension
-  <Provider store={createStore(() => {})}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById("root")
