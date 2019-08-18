@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router";
 import PropTypes from "prop-types";
 
-import { HOME_PATH } from "../helpers";
+import { HOME_PATH } from "utils/constants";
 
 export function PublicRoute({
   isAuthenticated,
@@ -29,9 +29,10 @@ PublicRoute.propTypes = {
   exact: PropTypes.bool.isRequired,
   component: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
-  isRestricted: PropTypes.bool.isRequired
+  isRestricted: PropTypes.bool
 };
 
 PublicRoute.defaultProps = {
-  isAuthenticated: false
+  isAuthenticated: false,
+  isRestricted: false
 };

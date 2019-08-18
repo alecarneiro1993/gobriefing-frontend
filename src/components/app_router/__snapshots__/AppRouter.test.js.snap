@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppRouter - the routing container component renders without crashing 1`] = `
+<BrowserRouter>
+  <PublicRoute
+    component={[Function]}
+    exact={true}
+    isAuthenticated={true}
+    isRestricted={false}
+    key="page_root"
+    path="/"
+  />
+  <PublicRoute
+    component={[Function]}
+    exact={true}
+    isAuthenticated={true}
+    isRestricted={true}
+    key="page_sign_in"
+    path="/sign_in"
+  />
+  <PrivateRoute
+    component={[Function]}
+    exact={true}
+    isAuthenticated={true}
+    key="page_home"
+    path="/home"
+  />
+</BrowserRouter>
+`;

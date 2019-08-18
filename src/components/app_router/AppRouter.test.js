@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import App from "./App";
+import AppRouter from ".";
 
-describe("App - the main component", () => {
+describe("AppRouter - the routing container component", () => {
   it("renders without crashing", () => {
-    const component = shallow(<App />);
+    const component = shallow(<AppRouter />);
     expect(component).toMatchSnapshot();
   });
 });

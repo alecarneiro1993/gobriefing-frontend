@@ -1,15 +1,14 @@
+import { ROOT_PATH, HOME_PATH, SIGN_IN_PATH } from "utils/constants/routes";
+import { SIGN_IN_PAGE, ROOT_PAGE, HOME_PAGE } from "utils/constants/pages";
+
 const PUBLIC_ROUTE = "PublicRoute";
 const PRIVATE_ROUTE = "PrivateRoute";
-
-export const ROOT_PATH = "/";
-export const SIGN_IN_PATH = "/sign_in";
-export const HOME_PATH = "/home";
 
 export const routes = [
   {
     path: ROOT_PATH,
     exact: true,
-    component: "RootPage",
+    component: ROOT_PAGE,
     route: PUBLIC_ROUTE,
     isRestricted: false,
     key: "page_root"
@@ -17,7 +16,7 @@ export const routes = [
   {
     path: SIGN_IN_PATH,
     exact: true,
-    component: "LoginPage",
+    component: SIGN_IN_PAGE,
     route: PUBLIC_ROUTE,
     isRestricted: true,
     key: "page_sign_in"
@@ -25,7 +24,7 @@ export const routes = [
   {
     path: HOME_PATH,
     exact: true,
-    component: "HomePage",
+    component: HOME_PAGE,
     route: PRIVATE_ROUTE,
     key: "page_home"
   }

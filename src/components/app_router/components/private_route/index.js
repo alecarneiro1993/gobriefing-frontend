@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router";
 import PropTypes from "prop-types";
 
-import { SIGN_IN_PATH } from "../helpers";
+import { SIGN_IN_PATH } from "utils/constants";
 
 export function PrivateRoute({
   isAuthenticated,
