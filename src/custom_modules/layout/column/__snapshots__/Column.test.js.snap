@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column renders without crashing 1`] = `
+<WithStyles(ForwardRef(Grid))
+  item={true}
+>
+  Content
+</WithStyles(ForwardRef(Grid))>
+`;

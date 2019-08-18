@@ -5,7 +5,7 @@ exports[`AppRouter - the routing container component renders without crashing 1`
   <PublicRoute
     component={[Function]}
     exact={true}
-    isAuthenticated={true}
+    isAuthenticated={false}
     isRestricted={false}
     key="page_root"
     path="/"
@@ -13,7 +13,7 @@ exports[`AppRouter - the routing container component renders without crashing 1`
   <PublicRoute
     component={[Function]}
     exact={true}
-    isAuthenticated={true}
+    isAuthenticated={false}
     isRestricted={true}
     key="page_sign_in"
     path="/sign_in"
@@ -21,7 +21,7 @@ exports[`AppRouter - the routing container component renders without crashing 1`
   <PrivateRoute
     component={[Function]}
     exact={true}
-    isAuthenticated={true}
+    isAuthenticated={false}
     key="page_home"
     path="/home"
   />

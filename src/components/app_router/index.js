@@ -9,7 +9,7 @@ import * as pageComponents from "../pages";
 class AppRouter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isAuthenticated: true };
+    this.state = { isAuthenticated: false };
   }
 
   render() {
