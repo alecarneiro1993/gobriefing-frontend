@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
+
+import { LoadingSpinner } from "custom_modules";
 
 import AppRouter from "./components/app_router";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <AppRouter />
+    </Suspense>
+  );
 }
 
 export default App;

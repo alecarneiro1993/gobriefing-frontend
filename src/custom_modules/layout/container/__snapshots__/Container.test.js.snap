@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container renders without crashing 1`] = `
+<Styled(WithStyles(ForwardRef(Container)))>
+  <Styled(WithStyles(ForwardRef(Grid)))
+    container={true}
+  >
+    Test
+  </Styled(WithStyles(ForwardRef(Grid)))>
+</Styled(WithStyles(ForwardRef(Container)))>
+`;

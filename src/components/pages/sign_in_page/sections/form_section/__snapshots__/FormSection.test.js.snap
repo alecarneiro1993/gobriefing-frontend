@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormSection renders without crashing 1`] = `
+<Container
+  alignItems="center"
+>
+  <Row
+    alignContent="center"
+  >
+    <Column
+      xs={8}
+    >
+      <PageHeading>
+        pages.sign_in.heading
+      </PageHeading>
+    </Column>
+  </Row>
+</Container>
+`;

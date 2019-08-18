@@ -4,6 +4,8 @@ exports[`PageContainer - the main container for pages renders without crashing 1
 <StylesProvider
   injectFirst={true}
 >
-  <Styled(WithStyles(ForwardRef(Container))) />
+  <Styled(WithStyles(ForwardRef(Container)))
+    component="main"
+  />
 </StylesProvider>
 `;

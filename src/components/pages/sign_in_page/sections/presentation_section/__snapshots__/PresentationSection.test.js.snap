@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PresentationSection renders without crashing 1`] = `
-<Styled(Styled(MuiBox))
+<ImageBackground
+  color="rgba(255,102,51,0.4)"
   src="https://dslv9ilpbe7p1.cloudfront.net/hownJrwXlTVdURCWN3Sj1g_store_header_image"
 />
 `;

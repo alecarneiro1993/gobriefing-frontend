@@ -2,7 +2,7 @@ import React from "react";
 
 import { PageContainer, Row, Column } from "custom_modules";
 
-import { PresentationSection } from "./sections";
+import { PresentationSection, FormSection } from "./sections";
 
 class SignInPage extends React.Component {
   render() {
@@ -12,7 +12,9 @@ class SignInPage extends React.Component {
           <Column xs={7}>
             <PresentationSection />
           </Column>
-          <Column xs={5}>Form</Column>
+          <Column xs={5}>
+            <FormSection />
+          </Column>
         </Row>
       </PageContainer>
     );

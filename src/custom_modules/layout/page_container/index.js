@@ -11,7 +11,7 @@ const PageWrapper = styled(Container)`
 export function PageContainer(props) {
   return (
     <StylesProvider injectFirst>
-      <PageWrapper {...props} />
+      <PageWrapper {...props} component="main" />
     </StylesProvider>
   );
 }

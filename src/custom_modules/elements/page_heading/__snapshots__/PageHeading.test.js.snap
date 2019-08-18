@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeading renders without crashing 1`] = `
+<WithStyles(ForwardRef(Typography))
+  component="h1"
+  variant="h4"
+>
+  Heading Test
+</WithStyles(ForwardRef(Typography))>
+`;

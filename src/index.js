@@ -1,17 +1,19 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 import "normalize.css";
 
 // import * as reducers from './reducers';
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./i18n";
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
-  () => {} /* preloadedState, */,
+  combineReducers({ form: formReducer }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 /* eslint-enable */
