@@ -1,15 +1,18 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
 
 import { PageContainer, Row, Column } from "custom_modules";
+
+import { PresentationSection } from "./sections";
 
 class SignInPage extends React.Component {
   render() {
     return (
-      <PageContainer>
+      <PageContainer maxWidth={false}>
         <Row>
-          <Column xs="8">Side</Column>
-          <Column xs="4">Form</Column>
+          <Column xs={7}>
+            <PresentationSection />
+          </Column>
+          <Column xs={5}>Form</Column>
         </Row>
       </PageContainer>
     );

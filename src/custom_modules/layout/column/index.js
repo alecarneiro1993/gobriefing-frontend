@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 
-export function Column({ children, ...props }) {
+export function Column({ children, ...rest }) {
   return (
-    <Grid item {...props}>
+    <Grid item {...rest}>
       {children}
     </Grid>
   );

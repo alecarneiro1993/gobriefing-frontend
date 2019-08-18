@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PresentationSection renders without crashing 1`] = `
+<Styled(Styled(MuiBox))
+  src="https://dslv9ilpbe7p1.cloudfront.net/hownJrwXlTVdURCWN3Sj1g_store_header_image"
+/>
+`;
