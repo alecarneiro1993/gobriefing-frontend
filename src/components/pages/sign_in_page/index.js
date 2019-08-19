@@ -9,10 +9,10 @@ class SignInPage extends React.Component {
     return (
       <PageContainer maxWidth={false}>
         <Row>
-          <Column xs={7}>
+          <Column smDown md={7} lg={7} xl={8}>
             <PresentationSection />
           </Column>
-          <Column xs={5}>
+          <Column xs sm md lg xl>
             <FormSection />
           </Column>
         </Row>

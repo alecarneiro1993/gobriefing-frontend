@@ -11,12 +11,12 @@ export default function FormSection() {
   return (
     <Container height={FULL} alignContent={CENTER}>
       <Row justify={CENTER} styles={{ padding: "3rem" }}>
-        <Column xs={10}>
+        <Column xs>
           <PageHeading align={CENTER}>{t("pages.sign_in.heading")}</PageHeading>
         </Column>
       </Row>
       <Row justify={CENTER}>
-        <Column xs={10}>
+        <Column xs>
           <SignInForm />
         </Column>
       </Row>

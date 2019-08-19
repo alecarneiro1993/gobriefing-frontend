@@ -1,9 +1,13 @@
+import React from "react";
 import styled from "styled-components";
 import { Icon as MUIIcon } from "@material-ui/core";
 
-const Icon = styled(MUIIcon)`
-  color: ${({ color }) => color || "primary"};
+const IconComponent = styled(MUIIcon)`
   font-size: ${({ size }) => size || "small"};
-  text-align: ${({ align }) => align || "left"};
+  ${({ marginTop }) =>
+    marginTop && `position: relative; margin-top: ${marginTop}px`}
 `;
-export default Icon;
+
+export default function Icon({ marginTop, ...rest }) {
+  return <IconComponent marginTop={marginTop} {...rest} />;
+}

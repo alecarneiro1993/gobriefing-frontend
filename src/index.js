@@ -10,6 +10,7 @@ import "normalize.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./i18n";
+import "./index.css";
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(

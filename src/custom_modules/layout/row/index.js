@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 export default function Row({ children, ...rest }) {
   return (
-    <Grid container direction="row" {...rest}>
+    <Grid container item {...rest}>
       {children}
     </Grid>
   );

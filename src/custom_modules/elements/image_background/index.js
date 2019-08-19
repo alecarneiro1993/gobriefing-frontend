@@ -7,23 +7,40 @@ import { CENTER } from "utils/constants";
 
 const ImageOverlayColor = styled(Box)`
   background: ${({ color }) => `linear-gradient(${color});`}
-  
-  opacity: 0.7;
+  opacity: 1;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 `;
 
-function ImageBackgroundWrapper({ color, src }) {
+function ImageBackgroundWrapper(props) {
+  const { primaryText, secondaryText, color } = props;
   return (
     <Box
       style={{
         backgroundPosition: { CENTER },
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: "100vh",
-        backgroundImage: `url(${src})`
+        height: "100vh"
       }}
     >
-      <ImageOverlayColor color={color} />
+      <ImageOverlayColor color={color}>
+        <Box>
+          <Box
+            style={{
+              fontSize: "3.4rem",
+              fontFamily: "Saira Stencil One, cursive"
+            }}
+          >
+            {primaryText}
+          </Box>
+
+          <Box style={{ fontSize: "1.3rem" }}>{secondaryText}</Box>
+        </Box>
+      </ImageOverlayColor>
     </Box>
   );
 }
