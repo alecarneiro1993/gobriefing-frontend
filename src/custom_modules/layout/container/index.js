@@ -11,7 +11,7 @@ const ContainerWrapper = styled(MUIContainer)`
 `;
 
 const GridWrapper = styled(Grid)`
-  height: ${FULL};
+  height: ${FULL}%;
   padding: 0;
 `;
 

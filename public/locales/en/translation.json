@@ -3,7 +3,9 @@
     "pages": {
         "sign_in": {
             "heading": "Sign In",
-            "submit": "Sign In"
+            "sign_up": "Sign Up",
+            "forgot_password": "Forgot your password?",
+            "submit": "Enter"
         }
     }
 }

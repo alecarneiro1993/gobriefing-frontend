@@ -1,13 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Icon as MUIIcon } from "@material-ui/core";
 
-const IconComponent = styled(MUIIcon)`
+function IconWrapper({ marginTop, ...rest }) {
+  return <MUIIcon style={{ marginTop: `${marginTop}rem` }} {...rest} />;
+}
+
+const Icon = styled(IconWrapper)`
   font-size: ${({ size }) => size || "small"};
-  ${({ marginTop }) =>
-    marginTop && `position: relative; margin-top: ${marginTop}px`}
 `;
 
-export default function Icon({ marginTop, ...rest }) {
-  return <IconComponent marginTop={marginTop} {...rest} />;
-}
+IconWrapper.propTypes = {
+  marginTop: PropTypes.number
+};
+
+IconWrapper.defaultProps = {
+  marginTop: ""
+};
+export default Icon;
