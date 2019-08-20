@@ -15,7 +15,8 @@ import {
   SECONDARY,
   RIGHT,
   HALF
-} from "utils/constants";
+} from "utils/constants/values";
+import { SIGN_UP_PATH, PASSWORD_RECOVERY_PATH } from "utils/constants/routes";
 
 import { fields } from "./helpers";
 
@@ -51,7 +52,11 @@ class SignInForm extends React.Component {
         <Row direction={ROW_REVERSE}>
           <OffsetColumn xs={1} sm={2} md={1} lg={1} xl={1} />
           <Column xs={6} sm={6} md={6} lg={6} xl={6} align={RIGHT}>
-            <RobotoTypography component={Link} to="/sign_up" color={PRIMARY}>
+            <RobotoTypography
+              component={Link}
+              to={PASSWORD_RECOVERY_PATH}
+              color={PRIMARY}
+            >
               {t("pages.sign_in.forgot_password")}
             </RobotoTypography>
           </Column>
@@ -59,7 +64,13 @@ class SignInForm extends React.Component {
         <Row direction={ROW_REVERSE}>
           <OffsetColumn xs={1} sm={2} md={1} lg={1} xl={1} />
           <Column xs={4} sm={4} md={4} lg={4} xl={3}>
-            <Button variant="contained" color={SECONDARY} fullWidth>
+            <Button
+              variant="contained"
+              color={SECONDARY}
+              component={Link}
+              to={SIGN_UP_PATH}
+              fullWidth
+            >
               {t("pages.sign_in.sign_up")}
             </Button>
           </Column>

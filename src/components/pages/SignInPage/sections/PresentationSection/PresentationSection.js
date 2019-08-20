@@ -14,13 +14,15 @@ import {
   LIGHT_WHITE,
   H1,
   H2,
-  SUBTITLE
+  SUBTITLE,
+  LIGHT_PINK,
+  LIGHT_PURPLE
 } from "utils/constants/values";
 
 export default function PresentationSection() {
   const { t } = useTranslation();
   return (
-    <GradientOverlay color={{ from: "#667eea", to: "#764ba2" }}>
+    <GradientOverlay color={{ from: LIGHT_PURPLE, to: LIGHT_PINK }}>
       <Container>
         <Row>
           <Column md>

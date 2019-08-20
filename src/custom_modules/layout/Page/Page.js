@@ -4,7 +4,6 @@ import { StylesProvider } from "@material-ui/styles";
 import styled from "styled-components";
 
 const PageWrapper = styled(Container)`
-  height: 100vh;
   display: flex;
   align-items: center;
   padding: 0;

@@ -8,6 +8,7 @@ export const ROBOTO_FONT = "Roboto";
 // NUMERICS
 export const FULL = "100";
 export const HALF = "50";
+export const QUARTER = "25";
 
 // POSITIONS
 export const CENTER = "center";
@@ -34,6 +35,8 @@ export const ROW_REVERSE = "row-reverse";
 export const WHITE = "white";
 export const BLACK = "black";
 export const LIGHT_WHITE = "#E8E8E8";
+export const LIGHT_PURPLE = "#667eea";
+export const LIGHT_PINK = "#764ba2";
 
 // VARIANTS
 export const H1 = "h1";
