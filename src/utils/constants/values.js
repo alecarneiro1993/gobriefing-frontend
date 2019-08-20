@@ -21,6 +21,7 @@ export const PRIMARY = "primary";
 export const SECONDARY = "secondary";
 export const DEFAULT = "default";
 export const INHERIT = "inherit";
+export const SUBMIT = "submit";
 
 // BEHAVIOURS
 export const NORMAL = "normal";
@@ -47,3 +48,5 @@ export const H5 = "h5";
 export const H6 = "h6";
 export const SUBTITLE = "subtitle";
 export const BODY = "body";
+export const CONTAINED = "contained";
+export const OUTLINED = "outlined";

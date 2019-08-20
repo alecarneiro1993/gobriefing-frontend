@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Container, Row, Column, SairaTypography } from "custom_modules";
 import { CENTER, FULL, SECONDARY } from "utils/constants";
 
-import Form from "./Form";
+import SignInForm from "./SignInForm";
 
 export default function FormSection() {
   const { t } = useTranslation();
@@ -24,7 +24,7 @@ export default function FormSection() {
       </Row>
       <Row>
         <Column xs>
-          <Form />
+          <SignInForm />
         </Column>
       </Row>
     </Container>
