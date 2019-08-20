@@ -1,9 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Box } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 
-import { CENTER, WHITE, LIGHT_WHITE, FULL, FLEX } from "utils/constants";
+import {
+  CENTER,
+  WHITE,
+  LIGHT_WHITE,
+  FULL,
+  FLEX,
+  H1,
+  H2,
+  SUBTITLE
+} from "utils/constants";
 import SairaTypography from "../saira_typography";
 import RobotoTypography from "../roboto_typography";
 
@@ -30,10 +39,10 @@ function BackgroundWrapper(props) {
     <Box>
       <GradientOverlay color={color}>
         <Box>
-          <Title component="h1" variant="h2" align={CENTER}>
+          <Title component={H1} variant={H2} align={CENTER}>
             {title}
           </Title>
-          <Subtitle component="h2" variant="subtitle1" align={CENTER}>
+          <Subtitle component={H2} variant={`${SUBTITLE}1`} align={CENTER}>
             {subtitle}
           </Subtitle>
         </Box>
@@ -46,7 +55,7 @@ const BackgroundOverlay = styled(BackgroundWrapper)`
   background-position: ${CENTER};
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: ${FULL}vh;
 `;
 
 export default BackgroundOverlay;
