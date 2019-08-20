@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import Row from ".";
-import Column from "../column";
+import Row from "./Row";
+import Column from "../Column";
 
 describe("Row", () => {
   it("renders without crashing", () => {

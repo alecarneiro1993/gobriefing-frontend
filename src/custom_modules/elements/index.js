@@ -1,8 +1,7 @@
-export { default as GradientOverlay } from "./gradient_overlay";
-export { default as PageHeading } from "./page_heading";
-export { default as LoadingSpinner } from "./loading_spinner";
-export { default as Icon } from "./icon";
-export { default as RobotoTypography } from "./roboto_typography";
-export { default as SairaTypography } from "./saira_typography";
-export { default as Button } from "./button";
-export { default as BlockContainer } from "./block_container";
+export { default as Button } from "./Button";
+export { default as GradientOverlay } from "./GradientOverlay";
+export { default as PageHeading } from "./PageHeading";
+export { default as LoadingSpinner } from "./LoadingSpinner";
+export { default as Icon } from "./Icon";
+export { default as RobotoTypography } from "./RobotoTypography";
+export { default as SairaTypography } from "./SairaTypography";

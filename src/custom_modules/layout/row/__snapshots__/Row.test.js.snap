@@ -3,7 +3,7 @@
 exports[`Row renders without crashing 1`] = `
 <WithStyles(ForwardRef(Grid))
   container={true}
-  direction="row"
+  item={true}
 >
   <Column>
     Test

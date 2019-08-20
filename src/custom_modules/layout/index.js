@@ -1,5 +1,6 @@
-export { default as PageContainer } from "./page_container";
-export { default as Container } from "./container";
-export { default as Row } from "./row";
-export { default as Column } from "./column";
-export { default as OffsetColumn } from "./offset_column";
+export { default as Page } from "./Page";
+export { default as Container } from "./Container";
+export { default as Row } from "./Row";
+export { default as Column } from "./Column";
+export { default as OffsetColumn } from "./OffsetColumn";
+export { default as Block } from "./Block";

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 
 import { LoadingSpinner } from "custom_modules";
 
-import AppRouter from "./components/app_router";
+import AppRouter from "./components/AppRouter";
 
 function App() {
   return (

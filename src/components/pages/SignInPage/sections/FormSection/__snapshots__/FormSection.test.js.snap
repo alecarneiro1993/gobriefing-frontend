@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormSection renders without crashing 1`] = `
+<Component
+  alignContent="center"
+  height="100%"
+>
+  <Component
+    justify="center"
+  >
+    <Component
+      align="center"
+      xs={4}
+    >
+      <Styled(WithStyles(ForwardRef(Typography)))
+        color="secondary"
+        component="h1"
+        gutterBottom={true}
+        variant="h4"
+      >
+        pages.sign_in.heading
+      </Styled(WithStyles(ForwardRef(Typography)))>
+    </Component>
+  </Component>
+  <Component>
+    <Component
+      xs={true}
+    >
+      <withI18nextTranslation(SignInForm) />
+    </Component>
+  </Component>
+</Component>
+`;

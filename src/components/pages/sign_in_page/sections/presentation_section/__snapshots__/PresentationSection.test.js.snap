@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`PresentationSection renders without crashing 1`] = `
-<ImageBackground
-  color="#667eea, #764ba2"
-  src="https://media-cdn.tripadvisor.com/media/photo-s/0e/8e/6a/d0/american-power.jpg"
-/>
-`;
