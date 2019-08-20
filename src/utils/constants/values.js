@@ -19,6 +19,7 @@ export const MIDDLE = "middle";
 export const PRIMARY = "primary";
 export const SECONDARY = "secondary";
 export const DEFAULT = "default";
+export const INHERIT = "inherit";
 
 // BEHAVIOURS
 export const NORMAL = "normal";
@@ -31,6 +32,7 @@ export const ROW_REVERSE = "row-reverse";
 
 // Colors
 export const WHITE = "white";
+export const BLACK = "black";
 export const LIGHT_WHITE = "#E8E8E8";
 
 // VARIANTS
