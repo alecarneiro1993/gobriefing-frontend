@@ -24,10 +24,6 @@ import { SIGN_UP_PATH, PASSWORD_RECOVERY_PATH } from "utils/constants/routes";
 import { fields } from "./helpers";
 
 class SignInForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   onSubmit(e) {}
 
   render() {

@@ -1,11 +1,16 @@
 {
-    "catch_phrase": "Equipe-se.",
-    "pages": {
-        "sign_in": {
-            "heading": "Login",
-            "sign_up": "Cadastro",
-            "submit": "Entrar",
-            "forgot_password": "Esqueceu a senha?"
-        }
+  "catch_phrase": "Equipe-se.",
+  "pages": {
+    "sign_in": {
+      "heading": "Login",
+      "sign_up": "Cadastro",
+      "submit": "Entrar",
+      "forgot_password": "Esqueceu a senha?"
     }
+  },
+  "errors": {
+    "sessions": {
+      "wrong_credentials": "Credenciais incorretas"
+    }
+  }
 }

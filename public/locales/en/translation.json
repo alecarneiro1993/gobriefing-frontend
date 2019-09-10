@@ -1,11 +1,16 @@
 {
-    "catch_phrase": "Ready yourself.",
-    "pages": {
-        "sign_in": {
-            "heading": "Sign In",
-            "sign_up": "Sign Up",
-            "forgot_password": "Forgot your password?",
-            "submit": "Enter"
-        }
+  "catch_phrase": "Ready yourself.",
+  "pages": {
+    "sign_in": {
+      "heading": "Sign In",
+      "sign_up": "Sign Up",
+      "forgot_password": "Forgot your password?",
+      "submit": "Enter"
     }
+  },
+  "errors": {
+    "sessions": {
+      "wrong_credentials": "Wrong credentials"
+    }
+  }
 }
