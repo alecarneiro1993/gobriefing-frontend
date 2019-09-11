@@ -10,7 +10,7 @@
   },
   "errors": {
     "sessions": {
-      "wrong_credentials": "Wrong credentials"
+      "wrong_credentials": "Wrong credentials inserted"
     }
   }
 }

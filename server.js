@@ -1,4 +1,5 @@
 require("@babel/register");
+require("@babel/polyfill");
 
 const axios = require("axios");
 const { ApolloServer } = require("apollo-server");

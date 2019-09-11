@@ -9,27 +9,37 @@ exports[`PresentationSection renders without crashing 1`] = `
     }
   }
 >
-  <Component>
-    <Styled(WithStyles(ForwardRef(Typography)))
-      align="center"
-      color="white"
-      component="h1"
-      gutterBottom={true}
-      variant="h3"
-    >
-      goBriefing
-    </Styled(WithStyles(ForwardRef(Typography)))>
-  </Component>
-  <Component>
-    <Styled(WithStyles(ForwardRef(Typography)))
-      align="center"
-      color="#E8E8E8"
-      component="h1"
-      gutterBottom={true}
-      variant="h3"
-    >
-      catch_phrase
-    </Styled(WithStyles(ForwardRef(Typography)))>
-  </Component>
+  <Container
+    height="auto"
+  >
+    <Row>
+      <Column
+        md={true}
+      >
+        <Styled(SairaTypographyWrapper)
+          align="center"
+          component="h1"
+          customColor="white"
+          variant="h2"
+        >
+          goBriefing
+        </Styled(SairaTypographyWrapper)>
+      </Column>
+    </Row>
+    <Row>
+      <Column
+        md={true}
+      >
+        <Styled(RobotoTypographyWrapper)
+          align="center"
+          component="h2"
+          customColor="#E8E8E8"
+          variant="overline"
+        >
+          catch_phrase
+        </Styled(RobotoTypographyWrapper)>
+      </Column>
+    </Row>
+  </Container>
 </Styled(Styled(MuiBox))>
 `;

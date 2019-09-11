@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Typography } from '@material-ui/core';
 
 export default function PageHeading({ children, ...rest }) {
   return (
@@ -13,6 +13,6 @@ export default function PageHeading({ children, ...rest }) {
 PageHeading.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+    PropTypes.node,
+  ]).isRequired,
 };

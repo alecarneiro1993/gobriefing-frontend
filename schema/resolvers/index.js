@@ -1,8 +1,11 @@
-import { users } from "./types";
+import { usersQueries } from "./queries";
+import { usersMutations } from "./mutations";
 const resolvers = {
   Query: {
-    ...users
+    ...usersQueries
+  },
+  Mutation: {
+    ...usersMutations
   }
 };
-
 export { resolvers };

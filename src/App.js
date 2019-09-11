@@ -1,14 +1,22 @@
-import React, { Suspense } from "react";
+import React, { Suspense } from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 
-import { LoadingSpinner } from "custom_modules";
+import LoadingSpinner from 'custom_modules/elements/LoadingSpinner';
 
-import AppRouter from "./components/AppRouter";
+import AppRouter from './components/AppRouter';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/',
+});
 
 function App() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <AppRouter />
-    </Suspense>
+    <ApolloProvider client={client}>
+      <Suspense fallback={<LoadingSpinner />}>
+        <AppRouter />
+      </Suspense>
+    </ApolloProvider>
   );
 }
 

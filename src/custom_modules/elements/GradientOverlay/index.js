@@ -1,1 +1,1 @@
-export { default } from "./GradientOverlay";
+export { default } from './GradientOverlay';

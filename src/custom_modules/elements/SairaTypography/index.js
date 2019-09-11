@@ -1,1 +1,1 @@
-export { default } from "./SairaTypography";
+export { default } from './SairaTypography';

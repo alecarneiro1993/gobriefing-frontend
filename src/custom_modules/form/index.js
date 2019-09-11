@@ -1,1 +1,1 @@
-export { default as FormText } from "./FormText";
+export { default as FormText } from './FormText';

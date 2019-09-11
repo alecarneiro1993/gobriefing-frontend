@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import Box from "@material-ui/core/Box";
+import styled from 'styled-components';
+import Box from '@material-ui/core/Box';
 
-import { CENTER, FULL, FLEX } from "utils/constants";
+import { CENTER, FULL, FLEX } from 'utils/constants';
 
 const GradientOverlay = styled(Box)`
   background: ${({ color: { from, to } }) => `linear-gradient(${from}, ${to});`}

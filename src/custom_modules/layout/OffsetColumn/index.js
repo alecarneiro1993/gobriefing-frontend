@@ -1,1 +1,1 @@
-export { default } from "./OffsetColumn";
+export { default } from './OffsetColumn';

@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Typography from '@material-ui/core/Typography';
 
-import { ROBOTO_FONT, INHERIT } from "utils/constants";
+import { ROBOTO_FONT, INHERIT } from 'utils/constants';
 
 function RobotoTypographyWrapper({ customColor, ...rest }) {
   return <Typography {...rest} />;
@@ -11,8 +11,9 @@ function RobotoTypographyWrapper({ customColor, ...rest }) {
 
 const RobotoTypography = styled(RobotoTypographyWrapper)`
   font-family: ${ROBOTO_FONT};
-  text-decoration: ${({ textDecoration }) => textDecoration || "none"};
-  color: ${({ customColor }) => customColor || ""};
+  text-decoration: ${({ textDecoration }) => textDecoration || 'none'};
+  color: ${({ customColor }) => customColor || ''};
+  font-size: ${({ size }) => `${size}rem` || ''};
 `;
 
 RobotoTypographyWrapper.propTypes = {

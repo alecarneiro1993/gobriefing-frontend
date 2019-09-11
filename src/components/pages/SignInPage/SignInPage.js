@@ -1,10 +1,10 @@
-import React from "react";
-import Hidden from "@material-ui/core/Hidden";
+import React from 'react';
+import Hidden from '@material-ui/core/Hidden';
 
-import { Page, Row, Column } from "custom_modules/layout";
-import { MobileLogoHeader } from "custom_modules/elements";
+import { Page, Row, Column } from 'custom_modules/layout';
+import { MobileLogoHeader } from 'custom_modules/elements';
 
-import { PresentationSection, FormSection } from "./sections";
+import { PresentationSection, FormSection } from './sections';
 
 class SignInPage extends React.Component {
   render() {

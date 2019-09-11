@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class RootPage extends React.Component {
   render() {

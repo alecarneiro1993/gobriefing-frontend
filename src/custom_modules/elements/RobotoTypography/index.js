@@ -1,1 +1,1 @@
-export { default } from "./RobotoTypography";
+export { default } from './RobotoTypography';

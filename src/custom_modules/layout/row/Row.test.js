@@ -1,15 +1,15 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import Row from "./Row";
-import Column from "../Column";
+import Row from './Row';
+import Column from '../Column';
 
-describe("Row", () => {
-  it("renders without crashing", () => {
+describe('Row', () => {
+  it('renders without crashing', () => {
     const wrapper = shallow(
       <Row>
         <Column>Test</Column>
-      </Row>
+      </Row>,
     );
     expect(wrapper).toMatchSnapshot();
   });

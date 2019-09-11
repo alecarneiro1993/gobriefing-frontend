@@ -10,7 +10,7 @@
   },
   "errors": {
     "sessions": {
-      "wrong_credentials": "Credenciais incorretas"
+      "wrong_credentials": "Credenciais inseridas incorretas"
     }
   }
 }

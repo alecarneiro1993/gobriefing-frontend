@@ -1,1 +1,1 @@
-export { default } from "./MobileLogoHeader";
+export { default } from './MobileLogoHeader';

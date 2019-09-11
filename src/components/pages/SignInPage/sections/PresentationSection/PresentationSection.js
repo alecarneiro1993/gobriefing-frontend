@@ -1,12 +1,12 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   GradientOverlay,
   SairaTypography,
   RobotoTypography
-} from "custom_modules/elements";
-import { Container, Row, Column } from "custom_modules/layout";
+} from 'custom_modules/elements';
+import { Container, Row, Column } from 'custom_modules/layout';
 import {
   PRODUCT_NAME,
   CENTER,
@@ -14,10 +14,10 @@ import {
   LIGHT_WHITE,
   H1,
   H2,
-  SUBTITLE,
   LIGHT_PINK,
-  LIGHT_PURPLE
-} from "utils/constants/values";
+  LIGHT_PURPLE,
+  OVERLINE
+} from 'utils/constants/values';
 
 export default function PresentationSection() {
   const { t } = useTranslation();
@@ -40,11 +40,11 @@ export default function PresentationSection() {
           <Column md>
             <RobotoTypography
               component={H2}
-              variant={`${SUBTITLE}1`}
+              variant={OVERLINE}
               align={CENTER}
               customColor={LIGHT_WHITE}
             >
-              {t("catch_phrase")}
+              {t('catch_phrase')}
             </RobotoTypography>
           </Column>
         </Row>

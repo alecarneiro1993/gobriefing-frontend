@@ -15,8 +15,8 @@ exports[`GradientOverlay renders without crashing 1`] = `
           [Function],
           "
   height: ",
-          "100",
-          "vh;
+          [Function],
+          " ;
   display: ",
           "flex",
           ";

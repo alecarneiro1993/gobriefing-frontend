@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { SairaTypography, GradientOverlay } from "custom_modules/elements";
+import { SairaTypography, GradientOverlay } from 'custom_modules/elements';
 import {
   QUARTER,
   LIGHT_PURPLE,
@@ -9,8 +9,8 @@ import {
   H1,
   H3,
   CENTER,
-  PRODUCT_NAME
-} from "utils/constants/values";
+  PRODUCT_NAME,
+} from 'utils/constants/values';
 
 function MobileLogoHeader() {
   return (

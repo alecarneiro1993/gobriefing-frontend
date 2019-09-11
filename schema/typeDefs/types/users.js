@@ -8,7 +8,20 @@ const users = gql`
   }
 
   type Query {
-    authenticate(email: String!, password: String!): String
+    users: [User]
+  }
+
+  type Mutation {
+    authenticate(input: AuthenticateInput!): AuthenticatePayload
+  }
+
+  input AuthenticateInput {
+    email: String!
+    password: String!
+  }
+
+  type AuthenticatePayload {
+    token: String
   }
 `;
 
