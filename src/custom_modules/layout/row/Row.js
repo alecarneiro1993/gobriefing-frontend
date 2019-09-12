@@ -1,8 +1,15 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { ChildrenArray, Element } from 'react';
 import { Grid } from '@material-ui/core';
 
-export default function Row({ children, ...rest }) {
+type Props = {
+  children: ChildrenArray<Element<any>>
+};
+
+function Row(props: Props) {
+  const { children, ...rest } = props;
   return (
     <Grid container item {...rest}>
       {children}
@@ -10,9 +17,4 @@ export default function Row({ children, ...rest }) {
   );
 }
 
-Row.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-};
+export default Row;

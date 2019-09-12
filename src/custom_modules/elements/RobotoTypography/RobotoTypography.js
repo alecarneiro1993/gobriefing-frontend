@@ -1,11 +1,17 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 
-import { ROBOTO_FONT, INHERIT } from 'utils/constants';
+import { ROBOTO_FONT } from 'utils/constants';
 
-function RobotoTypographyWrapper({ customColor, ...rest }) {
+function RobotoTypographyWrapper({
+  customColor,
+  ...rest
+}: {
+  customColor: string
+}) {
   return <Typography {...rest} />;
 }
 
@@ -15,13 +21,5 @@ const RobotoTypography = styled(RobotoTypographyWrapper)`
   color: ${({ customColor }) => customColor || ''};
   font-size: ${({ size }) => `${size}rem` || ''};
 `;
-
-RobotoTypographyWrapper.propTypes = {
-  customColor: PropTypes.string
-};
-
-RobotoTypographyWrapper.defaultProps = {
-  customColor: INHERIT
-};
 
 export default RobotoTypography;

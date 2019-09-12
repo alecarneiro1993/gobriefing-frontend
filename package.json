@@ -78,6 +78,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "eslint-plugin-flowtype": "^4.3.0",
     "flow-bin": "^0.107.0",

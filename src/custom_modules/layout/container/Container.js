@@ -1,5 +1,7 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { ChildrenArray, Element } from 'react';
 import { Container as MUIContainer, Grid } from '@material-ui/core';
 import styled from 'styled-components';
 
@@ -15,7 +17,13 @@ const GridWrapper = styled(Grid)`
   padding: 0;
 `;
 
-export default function Container({ children, height, ...rest }) {
+type Props = {
+  children: ChildrenArray<Element<any>>,
+  height: string
+};
+
+function Container(props: Props) {
+  const { children, height, ...rest } = props;
   return (
     <ContainerWrapper height={height}>
       <GridWrapper container {...rest}>
@@ -25,14 +33,4 @@ export default function Container({ children, height, ...rest }) {
   );
 }
 
-Container.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  height: PropTypes.string,
-};
-
-Container.defaultProps = {
-  height: 'auto',
-};
+export default Container;

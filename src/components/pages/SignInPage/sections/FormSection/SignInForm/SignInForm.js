@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { isEmpty } from 'lodash';
 import { connect } from 'react-redux';
@@ -15,10 +17,21 @@ import {
   FormFields,
   PasswordRecovery,
   SignUpButton,
-  SignInButton
+  SignInButton,
 } from './components';
 
-class SignInForm extends React.Component {
+type Props = {
+  email: string,
+  password: string,
+  t: Function,
+  setToken: Function
+};
+
+type State = {
+  error: string
+};
+
+class SignInForm extends React.Component<Props, State> {
   state = { error: '' };
 
   onSubmit = (e, loginMutation) => {
@@ -26,7 +39,7 @@ class SignInForm extends React.Component {
     loginMutation();
   };
 
-  setError = error => {
+  setError = (error) => {
     this.setState({ error });
   };
 
@@ -45,6 +58,7 @@ class SignInForm extends React.Component {
   render() {
     const { t, email, password } = this.props;
     const { error } = this.state;
+    const hasError = !isEmpty(error);
     return (
       <Mutation
         mutation={LOGIN_MUTATION}
@@ -52,18 +66,18 @@ class SignInForm extends React.Component {
         onCompleted={this.onCompleted}
         onError={this.onError}
       >
-        {loginMutation => (
-          <Form onSubmit={e => this.onSubmit(e, loginMutation)} noValidate>
+        {(loginMutation) => (
+          <Form onSubmit={(e) => this.onSubmit(e, loginMutation)} noValidate>
             <Container height={`${HALF}%`}>
-              <FormFields />
+              <FormFields error={hasError} />
               <PasswordRecovery t={t} />
               <SignUpButton t={t} />
               <SignInButton t={t} />
             </Container>
             <ErrorToast
-              open={!isEmpty(error)}
+              open={hasError}
               onClose={() => this.setError('')}
-              message={!isEmpty(error) && t(error)}
+              message={hasError && t(error)}
             />
           </Form>
         )}
@@ -78,14 +92,14 @@ function mapStateToProps(state) {
     const { email, password } = SignInForm.values;
     return {
       email,
-      password
+      password,
     };
   }
   return {
     initialValues: {
       email: '',
-      password: ''
-    }
+      password: '',
+    },
   };
 }
 
@@ -96,8 +110,8 @@ function mapDispatchToProps(dispatch) {
 export default compose(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
   ),
   withTranslation(),
-  reduxForm({ form: 'SignInForm' })
+  reduxForm({ form: 'SignInForm' }),
 )(SignInForm);

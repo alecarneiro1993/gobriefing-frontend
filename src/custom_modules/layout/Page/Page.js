@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Container } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/styles';
@@ -9,7 +11,9 @@ const PageWrapper = styled(Container)`
   padding: 0;
 `;
 
-export default function Page(props) {
+type Props = {};
+
+export default function Page(props: Props) {
   return (
     <StylesProvider injectFirst>
       <PageWrapper {...props} component="main" />

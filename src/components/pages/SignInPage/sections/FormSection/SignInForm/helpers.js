@@ -7,7 +7,7 @@ const fields = [
     required: true,
     name: 'email',
     label: 'Email',
-    key: 'sign_in_email'
+    key: 'sign_in_email',
   },
   {
     id: 'sign_in_password',
@@ -15,8 +15,8 @@ const fields = [
     required: true,
     name: 'password',
     label: 'Password',
-    key: 'sign_in_Password'
-  }
+    key: 'sign_in_Password',
+  },
 ];
 
 const LOGIN_MUTATION = gql`

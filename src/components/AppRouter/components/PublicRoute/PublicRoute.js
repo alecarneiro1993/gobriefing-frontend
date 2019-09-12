@@ -1,15 +1,23 @@
+// @flow
+
 import React from 'react';
 import { Route, Redirect } from 'react-router';
-import PropTypes from 'prop-types';
 
 import { HOME_PATH } from 'utils/constants';
 
-function PublicRoute({
-  isAuthenticated,
-  isRestricted,
-  component: Component,
-  ...rest
-}) {
+type Props = {
+  isAuthenticated: boolean,
+  isRestricted: boolean,
+  component: Class<any>
+};
+
+function PublicRoute(props: Props) {
+  const {
+    isAuthenticated,
+    isRestricted,
+    component: Component,
+    ...rest
+  } = props;
   return (
     <Route
       {...rest}
@@ -23,16 +31,3 @@ function PublicRoute({
 }
 
 export default PublicRoute;
-
-PublicRoute.propTypes = {
-  path: PropTypes.string.isRequired,
-  exact: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-  isRestricted: PropTypes.bool,
-};
-
-PublicRoute.defaultProps = {
-  isAuthenticated: false,
-  isRestricted: false,
-};

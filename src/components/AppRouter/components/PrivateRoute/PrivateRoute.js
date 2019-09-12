@@ -1,10 +1,17 @@
+// @flow
+
 import React from 'react';
 import { Route, Redirect } from 'react-router';
-import PropTypes from 'prop-types';
 
 import { SIGN_IN_PATH } from 'utils/constants';
 
-function PrivateRoute({ isAuthenticated, component: Component, ...rest }) {
+type Props = {
+  isAuthenticated: boolean,
+  component: Class<any>
+};
+
+function PrivateRoute(props: Props) {
+  const { isAuthenticated, component: Component, ...rest } = props;
   return (
     <Route
       {...rest}
@@ -18,10 +25,3 @@ function PrivateRoute({ isAuthenticated, component: Component, ...rest }) {
 }
 
 export default PrivateRoute;
-
-PrivateRoute.propTypes = {
-  exact: PropTypes.bool.isRequired,
-  path: PropTypes.string.isRequired,
-  component: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-};

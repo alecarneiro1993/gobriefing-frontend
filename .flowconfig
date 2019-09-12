@@ -1,11 +1,12 @@
 [ignore]
-
 [include]
-
+./src/
 [libs]
 
 [lints]
 
 [options]
+module.name_mapper='^custom_modules\(.*\)$' -> '<PROJECT_ROOT>/src/custom_modules/\1'
+module.name_mapper='^utils\(.*\)$' -> '<PROJECT_ROOT>/src/utils/\1'
 
 [strict]

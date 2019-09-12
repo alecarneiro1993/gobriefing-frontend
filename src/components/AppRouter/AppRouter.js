@@ -1,16 +1,23 @@
+// @flow
+
 import React from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { map } from 'lodash';
+import { map, isEmpty } from 'lodash';
 
 import { routes } from './helpers';
 import * as routeTypes from './components';
 import * as pageComponents from '../pages';
 
-class AppRouter extends React.Component {
-  state = { isAuthenticated: false };
+type Props = {
+  isAuthenticated: boolean
+};
 
+type State = {};
+
+class AppRouter extends React.Component<Props, State> {
   render() {
-    const { isAuthenticated } = this.state;
+    const { isAuthenticated } = this.props;
     return (
       <Router>
         {map(routes, ({
@@ -32,4 +39,10 @@ class AppRouter extends React.Component {
   }
 }
 
-export default AppRouter;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !isEmpty(state.session.token),
+  };
+}
+
+export default connect(mapStateToProps)(AppRouter);

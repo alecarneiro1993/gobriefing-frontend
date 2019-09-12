@@ -14,12 +14,13 @@
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": false
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "rules": {
+    "no-shadow": 0,
     "react/state-in-constructor": 0,
     "react/jsx-filename-extension": [
       1,
@@ -32,6 +33,9 @@
     "import/namespace": 0
   },
   "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    },
     "import/resolver": {
       "node": {
         "paths": ["src"],
