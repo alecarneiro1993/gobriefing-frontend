@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {
   GradientOverlay,
   SairaTypography,
-  RobotoTypography
+  RobotoTypography,
 } from 'custom_modules/elements';
 import { Container, Row, Column } from 'custom_modules/layout';
 import {
@@ -16,7 +16,7 @@ import {
   H2,
   LIGHT_PINK,
   LIGHT_PURPLE,
-  OVERLINE
+  OVERLINE,
 } from 'utils/constants/values';
 
 export default function PresentationSection() {

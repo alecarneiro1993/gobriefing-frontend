@@ -7,7 +7,7 @@ import LoadingSpinner from 'custom_modules/elements/LoadingSpinner';
 import AppRouter from './components/AppRouter';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: 'http://localhost:4000/'
 });
 
 function App() {

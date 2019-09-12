@@ -38,6 +38,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-apollo": "^3.1.0",
+    "react-cookie": "^4.0.1",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.12.2",
     "react-redux": "^7.1.0",
@@ -47,6 +48,7 @@
     "redux": "^4.0.4",
     "redux-devtools": "^3.5.0",
     "redux-form": "^8.2.6",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2"
   },
   "scripts": {
@@ -78,8 +80,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
-    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-preset-flow": "^6.23.0",
     "eslint-plugin-flowtype": "^4.3.0",
     "flow-bin": "^0.107.0",
     "react-test-renderer": "^16.9.0"

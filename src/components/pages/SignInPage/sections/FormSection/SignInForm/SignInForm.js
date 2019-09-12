@@ -3,7 +3,8 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
 import { connect } from 'react-redux';
-import { bindActionCreators, compose } from 'redux';
+import { compose } from 'redux';
+import { withCookies } from 'react-cookie';
 import { Form, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { Mutation } from 'react-apollo';
@@ -12,12 +13,11 @@ import { Container, ErrorToast } from 'custom_modules';
 import { HALF } from 'utils/constants/values';
 
 import { LOGIN_MUTATION } from './helpers';
-import { setToken } from './actions';
 import {
   FormFields,
   PasswordRecovery,
   SignUpButton,
-  SignInButton,
+  SignInButton
 } from './components';
 
 type Props = {
@@ -39,7 +39,7 @@ class SignInForm extends React.Component<Props, State> {
     loginMutation();
   };
 
-  setError = (error) => {
+  setError = error => {
     this.setState({ error });
   };
 
@@ -51,8 +51,8 @@ class SignInForm extends React.Component<Props, State> {
   };
 
   onCompleted = ({ authenticate: { token } }) => {
-    const { setToken } = this.props;
-    setToken(token);
+    const { cookies } = this.props;
+    cookies.set('token', token);
   };
 
   render() {
@@ -66,8 +66,8 @@ class SignInForm extends React.Component<Props, State> {
         onCompleted={this.onCompleted}
         onError={this.onError}
       >
-        {(loginMutation) => (
-          <Form onSubmit={(e) => this.onSubmit(e, loginMutation)} noValidate>
+        {loginMutation => (
+          <Form onSubmit={e => this.onSubmit(e, loginMutation)} noValidate>
             <Container height={`${HALF}%`}>
               <FormFields error={hasError} />
               <PasswordRecovery t={t} />
@@ -92,26 +92,20 @@ function mapStateToProps(state) {
     const { email, password } = SignInForm.values;
     return {
       email,
-      password,
+      password
     };
   }
   return {
     initialValues: {
       email: '',
-      password: '',
-    },
+      password: ''
+    }
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setToken }, dispatch);
-}
-
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps),
   withTranslation(),
-  reduxForm({ form: 'SignInForm' }),
+  withCookies,
+  reduxForm({ form: 'SignInForm' })
 )(SignInForm);

@@ -21,11 +21,13 @@ function PublicRoute(props: Props) {
   return (
     <Route
       {...rest}
-      render={(props) => (isAuthenticated && isRestricted ? (
-        <Redirect to={HOME_PATH} />
-      ) : (
-        <Component {...props} />
-      ))}
+      render={props =>
+        isAuthenticated && isRestricted ? (
+          <Redirect to={HOME_PATH} />
+        ) : (
+          <Component {...props} />
+        )
+      }
     />
   );
 }

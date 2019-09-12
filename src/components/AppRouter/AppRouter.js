@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { withCookies } from 'react-cookie';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { map, isEmpty } from 'lodash';
 
@@ -17,19 +17,18 @@ type State = {};
 
 class AppRouter extends React.Component<Props, State> {
   render() {
-    const { isAuthenticated } = this.props;
+    const { cookies } = this.props;
+    const isAuthenticated = !isEmpty(cookies.get('token'));
     return (
       <Router>
-        {map(routes, ({
-          route, key, component, ...routeProps
-        }) => {
-          const pageComponent = pageComponents[component];
+        {map(routes, ({ route, key, component, ...routeProps }) => {
+          const Page = pageComponents[component];
           const Route = routeTypes[route];
           return (
             <Route
               {...routeProps}
               key={key}
-              component={pageComponent}
+              component={Page}
               isAuthenticated={isAuthenticated}
             />
           );
@@ -38,11 +37,4 @@ class AppRouter extends React.Component<Props, State> {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    isAuthenticated: !isEmpty(state.session.token),
-  };
-}
-
-export default connect(mapStateToProps)(AppRouter);
+export default withCookies(AppRouter);
