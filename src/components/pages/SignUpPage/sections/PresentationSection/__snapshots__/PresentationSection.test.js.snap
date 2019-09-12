@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PresentationSection renders without crashing 1`] = `
+<Styled(Styled(MuiBox))
+  color={
+    Object {
+      "from": "#667eea",
+      "to": "#764ba2",
+    }
+  }
+>
+  <Container
+    height="auto"
+  >
+    <Row>
+      <Column
+        md={true}
+      >
+        <Styled(SairaTypographyWrapper)
+          align="center"
+          component="h1"
+          customColor="white"
+          variant="h2"
+        >
+          goBriefing
+        </Styled(SairaTypographyWrapper)>
+      </Column>
+    </Row>
+    <Row>
+      <Column
+        md={true}
+      >
+        <Styled(RobotoTypographyWrapper)
+          align="center"
+          component="h2"
+          customColor="#E8E8E8"
+          variant="overline"
+        >
+          catch_phrase
+        </Styled(RobotoTypographyWrapper)>
+      </Column>
+    </Row>
+  </Container>
+</Styled(Styled(MuiBox))>
+`;

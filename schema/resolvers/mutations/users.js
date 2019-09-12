@@ -1,12 +1,19 @@
-import axios from "axios";
+import axios from 'axios';
 
 const users = {
-  authenticate: async (obj, { input: { email, password } }) => {
+  authenticate: async (obj, { input }) => {
     const {
       data: { token }
-    } = await axios.post("/api/sessions/authenticate", { email, password });
+    } = await axios.post('/api/sessions/authenticate', { ...input });
     if (token) return { token };
-    throw new Error("errors.sessions.wrong_credentials");
+    throw new Error('errors.sessions.wrong_credentials');
+  },
+  createUser: async (obj, { input }) => {
+    const {
+      data: { isCreated }
+    } = await axios.post('/api/users', { ...input });
+    if (isCreated) return { isCreated };
+    throw new Error('errors.users.creation_failed');
   }
 };
 

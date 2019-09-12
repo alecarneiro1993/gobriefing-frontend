@@ -4,7 +4,7 @@ import FormTemplate from 'custom_modules/templates/FormTemplate';
 
 import { PresentationSection, FormSection } from './sections';
 
-function SignInPage() {
+function SignUpPage() {
   return (
     <FormTemplate presentation={PresentationSection}>
       <FormSection />
@@ -12,4 +12,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default SignUpPage;

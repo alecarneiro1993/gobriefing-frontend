@@ -6,17 +6,17 @@ const fields = [
     type: 'string',
     required: true,
     name: 'email',
-    label: 'Email',
-    key: 'sign_in_email',
+    label: 'pages.sign_in.fields.email',
+    key: 'sign_in_email'
   },
   {
     id: 'sign_in_password',
     type: 'password',
     required: true,
     name: 'password',
-    label: 'Password',
-    key: 'sign_in_Password',
-  },
+    label: 'pages.sign_in.fields.password',
+    key: 'sign_in_password'
+  }
 ];
 
 const LOGIN_MUTATION = gql`

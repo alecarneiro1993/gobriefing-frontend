@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+import { gql } from 'apollo-server';
 
 const users = gql`
   type User {
@@ -13,6 +13,7 @@ const users = gql`
 
   type Mutation {
     authenticate(input: AuthenticateInput!): AuthenticatePayload
+    createUser(input: CreateUserInput!): CreateUserPayload
   }
 
   input AuthenticateInput {
@@ -22,6 +23,19 @@ const users = gql`
 
   type AuthenticatePayload {
     token: String
+  }
+
+  input CreateUserInput {
+    firstName: String!
+    lastName: String!
+    nickname: String!
+    email: String!
+    password: String!
+    passwordConfirmation: String!
+  }
+
+  type CreateUserPayload {
+    isCreated: Boolean
   }
 `;
 

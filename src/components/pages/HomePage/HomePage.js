@@ -2,7 +2,14 @@ import React from 'react';
 
 class HomePage extends React.Component {
   render() {
-    return <div>Home</div>;
+    return (
+      <div>
+        Home{' '}
+        <button onClick={() => this.props.cookies.set('token', '')}>
+          Logout
+        </button>
+      </div>
+    );
   }
 }
 

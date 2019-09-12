@@ -8,7 +8,8 @@ import { HOME_PATH } from 'utils/constants';
 type Props = {
   isAuthenticated: boolean,
   isRestricted: boolean,
-  component: Class<any>
+  component: Class<any>,
+  cookies: Object
 };
 
 function PublicRoute(props: Props) {
@@ -16,16 +17,17 @@ function PublicRoute(props: Props) {
     isAuthenticated,
     isRestricted,
     component: Component,
+    cookies,
     ...rest
   } = props;
   return (
     <Route
       {...rest}
-      render={props =>
+      render={() =>
         isAuthenticated && isRestricted ? (
           <Redirect to={HOME_PATH} />
         ) : (
-          <Component {...props} />
+          <Component {...props} cookies={cookies} />
         )
       }
     />

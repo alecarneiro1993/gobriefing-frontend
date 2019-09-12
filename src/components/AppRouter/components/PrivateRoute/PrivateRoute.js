@@ -7,19 +7,22 @@ import { SIGN_IN_PATH } from 'utils/constants';
 
 type Props = {
   isAuthenticated: boolean,
-  component: Class<any>
+  component: Class<any>,
+  cookies: Object
 };
 
 function PrivateRoute(props: Props) {
-  const { isAuthenticated, component: Component, ...rest } = props;
+  const { isAuthenticated, component: Component, cookies, ...rest } = props;
   return (
     <Route
       {...rest}
-      render={(props) => (isAuthenticated ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to={SIGN_IN_PATH} />
-      ))}
+      render={() =>
+        isAuthenticated ? (
+          <Component {...props} cookies={cookies} />
+        ) : (
+          <Redirect to={SIGN_IN_PATH} />
+        )
+      }
     />
   );
 }

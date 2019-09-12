@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { isEmpty } from 'lodash';
+import { isEmpty, map, snakeCase } from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withCookies } from 'react-cookie';
@@ -12,13 +12,8 @@ import { Mutation } from 'react-apollo';
 import { Container, ErrorToast } from 'custom_modules';
 import { HALF } from 'utils/constants/values';
 
-import { LOGIN_MUTATION } from './helpers';
-import {
-  FormFields,
-  PasswordRecovery,
-  SignUpButton,
-  SignInButton
-} from './components';
+import { CREATE_USER_MUTATION } from './helpers';
+import { FormFields, SignUpButton, SignInButton } from './components';
 
 type Props = {
   email: string,
@@ -31,12 +26,18 @@ type State = {
   error: string
 };
 
-class SignInForm extends React.Component<Props, State> {
-  state = { error: '' };
+class SignUpForm extends React.Component<Props, State> {
+  state = { error: {} };
 
-  onSubmit = (e, loginMutation) => {
+  onSubmit = (e, createUserMutation) => {
     e.preventDefault();
-    loginMutation();
+    const { formValues } = this.props;
+    const emptyFields = map(formValues, (value, key) => isEmpty(value) && key);
+    if (!isEmpty(emptyFields)) {
+      this.setState({
+        error: { label: 'errors.users.required_fields', fields: emptyFields }
+      });
+    }
   };
 
   setError = error => {
@@ -56,28 +57,33 @@ class SignInForm extends React.Component<Props, State> {
   };
 
   render() {
-    const { t, email, password } = this.props;
+    const { t, formValues } = this.props;
     const { error } = this.state;
     const hasError = !isEmpty(error);
     return (
       <Mutation
-        mutation={LOGIN_MUTATION}
-        variables={{ email, password }}
+        mutation={CREATE_USER_MUTATION}
+        variables={{ ...formValues }}
         onCompleted={this.onCompleted}
         onError={this.onError}
       >
-        {loginMutation => (
-          <Form onSubmit={e => this.onSubmit(e, loginMutation)} noValidate>
+        {createUserMutation => (
+          <Form onSubmit={e => this.onSubmit(e, createUserMutation)} noValidate>
             <Container height={`${HALF}%`}>
-              <FormFields error={hasError} t={t} />
-              <PasswordRecovery t={t} />
+              <FormFields error={error} t={t} />
               <SignUpButton t={t} />
               <SignInButton t={t} />
             </Container>
             <ErrorToast
               open={hasError}
               onClose={() => this.setError('')}
-              message={hasError && t(error)}
+              message={
+                hasError &&
+                `${t(error.label)}: ${map(
+                  error.fields,
+                  field => ` ${t(`pages.sign_up.fields.${snakeCase(field)}`)}`
+                )}`
+              }
             />
           </Form>
         )}
@@ -87,18 +93,21 @@ class SignInForm extends React.Component<Props, State> {
 }
 
 function mapStateToProps(state) {
-  const { SignInForm } = state.form;
-  if (SignInForm) {
-    const { email, password } = SignInForm.values;
+  const { SignUpForm } = state.form;
+  if (SignUpForm) {
+    const { values: formValues } = SignUpForm;
     return {
-      email,
-      password
+      formValues
     };
   }
   return {
     initialValues: {
+      firstName: '',
+      lastName: '',
+      nickname: '',
       email: '',
-      password: ''
+      password: '',
+      passwordConfirmation: ''
     }
   };
 }
@@ -107,5 +116,5 @@ export default compose(
   connect(mapStateToProps),
   withTranslation(),
   withCookies,
-  reduxForm({ form: 'SignInForm' })
-)(SignInForm);
+  reduxForm({ form: 'SignUpForm' })
+)(SignUpForm);

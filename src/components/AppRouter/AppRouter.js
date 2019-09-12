@@ -10,7 +10,8 @@ import * as routeTypes from './components';
 import * as pageComponents from '../pages';
 
 type Props = {
-  isAuthenticated: boolean
+  isAuthenticated: boolean,
+  cookies: Object
 };
 
 type State = {};
@@ -27,6 +28,7 @@ class AppRouter extends React.Component<Props, State> {
           return (
             <Route
               {...routeProps}
+              cookies={cookies}
               key={key}
               component={Page}
               isAuthenticated={isAuthenticated}

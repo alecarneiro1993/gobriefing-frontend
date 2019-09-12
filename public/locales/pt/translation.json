@@ -5,10 +5,30 @@
       "heading": "Login",
       "sign_up": "Cadastro",
       "submit": "Entrar",
-      "forgot_password": "Esqueceu a senha?"
+      "forgot_password": "Esqueceu a senha?",
+      "fields": {
+        "email": "E-mail",
+        "password": "Senha"
+      }
+    },
+    "sign_up": {
+      "heading": "Cadastro",
+      "sign_in": "Login",
+      "submit": "ENVIAR",
+      "fields": {
+        "first_name": "Nome",
+        "last_name": "Sobrenome",
+        "nickname": "Apelido",
+        "email": "Email",
+        "password": "Senha",
+        "password_confirmation": "Confirmação de senha"
+      }
     }
   },
   "errors": {
+    "users": {
+      "required_fields": "Preencha os campos a seguir"
+    },
     "sessions": {
       "wrong_credentials": "Credenciais inseridas incorretas"
     }
