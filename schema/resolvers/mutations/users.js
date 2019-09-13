@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isEqual } from 'lodash';
 
 const users = {
   authenticate: async (obj, { input }) => {
@@ -10,10 +11,9 @@ const users = {
   },
   createUser: async (obj, { input }) => {
     const {
-      data: { isCreated }
-    } = await axios.post('/api/users', { ...input });
-    if (isCreated) return { isCreated };
-    throw new Error('errors.users.creation_failed');
+      data: { response }
+    } = await axios.post('/users', { ...input });
+    return { response };
   }
 };
 

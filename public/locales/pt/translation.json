@@ -26,11 +26,23 @@
     }
   },
   "errors": {
+    "common": {
+      "unexpected": "Algo inesperado aconteceu, por favor tente novamente mais tarde"
+    },
     "users": {
-      "required_fields": "Preencha os campos a seguir"
+      "required_fields": "Preencha os campos obrigatórios",
+      "invalid_email_format": "Por favor, forneça um e-mail válido",
+      "email_uniqueness": "O e-mail fornecido já possui uma conta",
+      "passwords_match": "Os campos Senha e Confirmação de senha não coincidem",
+      "min_password_length": "O campo Senha necessita de no mínimo 6 caracteres"
     },
     "sessions": {
       "wrong_credentials": "Credenciais inseridas incorretas"
+    }
+  },
+  "requests": {
+    "users": {
+      "account_created": "Sua conta foi criada e um e-mail foi enviado para sua caixa de entrada com os próximos passos"
     }
   }
 }

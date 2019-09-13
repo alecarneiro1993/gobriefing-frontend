@@ -35,7 +35,13 @@ const users = gql`
   }
 
   type CreateUserPayload {
-    isCreated: Boolean
+    response: CreateUserResponse
+  }
+
+  type CreateUserResponse {
+    label: String
+    type: String
+    fields: [String]
   }
 `;
 

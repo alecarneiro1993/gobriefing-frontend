@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { isEmpty, map, snakeCase } from 'lodash';
+import { isEmpty } from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withCookies } from 'react-cookie';
@@ -12,8 +12,9 @@ import { Mutation } from 'react-apollo';
 import { Container, ErrorToast } from 'custom_modules';
 import { HALF } from 'utils/constants/values';
 
-import { CREATE_USER_MUTATION } from './helpers';
+import { CREATE_USER_MUTATION, validateFields } from './helpers';
 import { FormFields, SignUpButton, SignInButton } from './components';
+import { isEqual } from 'apollo-utilities';
 
 type Props = {
   email: string,
@@ -32,28 +33,26 @@ class SignUpForm extends React.Component<Props, State> {
   onSubmit = (e, createUserMutation) => {
     e.preventDefault();
     const { formValues } = this.props;
-    const emptyFields = map(formValues, (value, key) => isEmpty(value) && key);
-    if (!isEmpty(emptyFields)) {
-      this.setState({
-        error: { label: 'errors.users.required_fields', fields: emptyFields }
-      });
+    const error = validateFields(formValues);
+    if (isEmpty(error)) {
+      return createUserMutation();
     }
+    this.setState({ error });
   };
 
   setError = error => {
     this.setState({ error });
   };
 
-  onError = ({ graphQLErrors }) => {
-    if (graphQLErrors) {
-      const error = graphQLErrors[0].message;
-      this.setError(error);
-    }
+  onError = () => {
+    this.setError({ label: 'errors.common.unexpected' });
   };
 
-  onCompleted = ({ authenticate: { token } }) => {
-    const { cookies } = this.props;
-    cookies.set('token', token);
+  onCompleted = ({ createUser }) => {
+    const { response } = createUser;
+    if (isEqual(response.type, 'error')) {
+      return this.setError(response);
+    }
   };
 
   render() {
@@ -76,14 +75,8 @@ class SignUpForm extends React.Component<Props, State> {
             </Container>
             <ErrorToast
               open={hasError}
-              onClose={() => this.setError('')}
-              message={
-                hasError &&
-                `${t(error.label)}: ${map(
-                  error.fields,
-                  field => ` ${t(`pages.sign_up.fields.${snakeCase(field)}`)}`
-                )}`
-              }
+              onClose={() => this.setError({})}
+              message={hasError && t(error.label)}
             />
           </Form>
         )}
@@ -102,12 +95,12 @@ function mapStateToProps(state) {
   }
   return {
     initialValues: {
-      firstName: '',
-      lastName: '',
-      nickname: '',
-      email: '',
-      password: '',
-      passwordConfirmation: ''
+      firstName: 'test',
+      lastName: 'test',
+      nickname: 'test',
+      email: 'test@test.com',
+      password: 'test123',
+      passwordConfirmation: 'test123'
     }
   };
 }

@@ -1,11 +1,13 @@
 import { gql } from 'apollo-boost';
+import { isEqual, isEmpty, pickBy, keys, size } from 'lodash';
+import { isEmail } from 'validator';
 
 const fields = [
   {
     id: 'sign_up_first_name',
     type: 'text',
     required: true,
-    name: 'first_name',
+    name: 'firstName',
     label: 'pages.sign_up.fields.first_name',
     key: 'sign_up_first_name'
   },
@@ -13,7 +15,7 @@ const fields = [
     id: 'sign_up_last_name',
     type: 'text',
     required: true,
-    name: 'last_name',
+    name: 'lastName',
     label: 'pages.sign_up.fields.last_name',
     key: 'sign_up_last_name'
   },
@@ -45,7 +47,7 @@ const fields = [
     id: 'sign_up_password_confirmation',
     type: 'password',
     required: true,
-    name: 'password_confirmation',
+    name: 'passwordConfirmation',
     label: 'pages.sign_up.fields.password_confirmation',
     key: 'sign_up_password_confirmation'
   }
@@ -70,9 +72,40 @@ const CREATE_USER_MUTATION = gql`
         passwordConfirmation: $passwordConfirmation
       }
     ) {
-      isCreated
+      response {
+        label
+        type
+        fields
+      }
     }
   }
 `;
 
-export { fields, CREATE_USER_MUTATION };
+function validateFields(values) {
+  let error = {};
+  const emptyFields = keys(pickBy(values, value => isEmpty(value)));
+
+  if (!isEmpty(emptyFields)) {
+    error = { label: 'errors.users.required_fields', fields: emptyFields };
+    return error;
+  }
+
+  const { email, password, passwordConfirmation } = values;
+
+  if (!isEmail(email)) {
+    error = { label: 'errors.users.invalid_email_format', fields: ['email'] };
+  } else if (size(password) < 6) {
+    error = {
+      label: 'errors.users.min_password_length',
+      fields: ['password']
+    };
+  } else if (!isEqual(password, passwordConfirmation)) {
+    error = {
+      label: 'errors.users.passwords_match',
+      fields: ['password', 'passwordConfirmation']
+    };
+  }
+  return error;
+}
+
+export { fields, CREATE_USER_MUTATION, validateFields };

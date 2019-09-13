@@ -26,11 +26,23 @@
     }
   },
   "errors": {
+    "common": {
+      "unexpected": "Something unexpected happened, please try again later"
+    },
     "users": {
-      "required_fields": "Fill the following fields"
+      "required_fields": "Fill the required fields",
+      "invalid_email_format": "Please provide a valid email address",
+      "email_uniqueness": "The supplied email already has an account",
+      "passwords_match": "The fields Password and Password Confirmation doesn't match",
+      "min_password_length": "The field Password requires a minimum of 6 characters"
     },
     "sessions": {
       "wrong_credentials": "Wrong credentials inserted"
+    }
+  },
+  "requests": {
+    "users": {
+      "account_created": "Your account has been created and an email has been sent to your inbox with the next steps"
     }
   }
 }
