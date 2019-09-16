@@ -1,7 +1,7 @@
 import { SET_TOKEN } from 'utils/constants/types';
 
 const initialState = {
-  token: ''
+  token: '',
 };
 
 function session(state = initialState, { type, payload }) {
@@ -9,7 +9,7 @@ function session(state = initialState, { type, payload }) {
     case SET_TOKEN:
       return {
         ...state,
-        token: payload
+        token: payload,
       };
     default:
       return state;

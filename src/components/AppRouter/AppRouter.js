@@ -22,7 +22,9 @@ class AppRouter extends React.Component<Props, State> {
     const isAuthenticated = !isEmpty(cookies.get('token'));
     return (
       <Router>
-        {map(routes, ({ route, key, component, ...routeProps }) => {
+        {map(routes, ({
+          route, key, component, ...routeProps
+        }) => {
           const Page = pageComponents[component];
           const Route = routeTypes[route];
           return (

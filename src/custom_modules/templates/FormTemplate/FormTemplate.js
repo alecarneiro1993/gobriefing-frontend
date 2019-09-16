@@ -10,6 +10,7 @@ import { ROW } from 'utils/constants/values';
 
 type Props = {
   presentation: any,
+  direction: string,
   children: ChildrenArray<Element<any>>
 };
 

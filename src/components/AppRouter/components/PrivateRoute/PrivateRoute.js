@@ -12,17 +12,17 @@ type Props = {
 };
 
 function PrivateRoute(props: Props) {
-  const { isAuthenticated, component: Component, cookies, ...rest } = props;
+  const {
+    isAuthenticated, component: Component, cookies, ...rest
+  } = props;
   return (
     <Route
       {...rest}
-      render={() =>
-        isAuthenticated ? (
-          <Component {...props} cookies={cookies} />
-        ) : (
-          <Redirect to={SIGN_IN_PATH} />
-        )
-      }
+      render={() => (isAuthenticated ? (
+        <Component {...props} cookies={cookies} />
+      ) : (
+        <Redirect to={SIGN_IN_PATH} />
+      ))}
     />
   );
 }

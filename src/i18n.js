@@ -22,8 +22,8 @@ i18n
     order: ['htmlTag'],
     caches: [],
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    }
+      escapeValue: false, // not needed for react as it escapes by default
+    },
   });
 
 export default i18n;

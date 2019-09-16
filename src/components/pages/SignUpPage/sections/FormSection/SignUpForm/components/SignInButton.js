@@ -8,7 +8,7 @@ import {
   PRIMARY,
   SUBMIT,
   CONTAINED,
-  ROW_REVERSE
+  ROW_REVERSE,
 } from 'utils/constants/values';
 
 function SignUpButton({ t }: { t: Function }) {

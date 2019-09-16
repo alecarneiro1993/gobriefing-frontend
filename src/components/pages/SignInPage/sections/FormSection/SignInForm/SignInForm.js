@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { isEmpty } from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withCookies } from 'react-cookie';
@@ -9,7 +8,7 @@ import { Form, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { Mutation } from 'react-apollo';
 
-import { Container, ErrorToast } from 'custom_modules';
+import { Container, withToast } from 'custom_modules';
 import { HALF } from 'utils/constants/values';
 
 import { LOGIN_MUTATION } from './helpers';
@@ -17,13 +16,14 @@ import {
   FormFields,
   PasswordRecovery,
   SignUpButton,
-  SignInButton
+  SignInButton,
 } from './components';
 
 type Props = {
   email: string,
   password: string,
   t: Function,
+  handleToast: Function,
   cookies: Object
 };
 
@@ -32,21 +32,21 @@ type State = {
 };
 
 class SignInForm extends React.Component<Props, State> {
-  state = { error: '' };
-
   onSubmit = (e, loginMutation) => {
     e.preventDefault();
     loginMutation();
   };
 
-  setError = error => {
-    this.setState({ error });
+  setError = (error) => {
+    const { handleToast, t } = this.props;
+    const { label, type } = error;
+    handleToast({ message: t(label), type });
   };
 
   onError = ({ graphQLErrors }) => {
     if (graphQLErrors) {
-      const error = graphQLErrors[0].message;
-      this.setError(error);
+      const label = graphQLErrors[0].message;
+      this.setError({ label, type: 'error' });
     }
   };
 
@@ -57,8 +57,6 @@ class SignInForm extends React.Component<Props, State> {
 
   render() {
     const { t, email, password } = this.props;
-    const { error } = this.state;
-    const hasError = !isEmpty(error);
     return (
       <Mutation
         mutation={LOGIN_MUTATION}
@@ -66,19 +64,14 @@ class SignInForm extends React.Component<Props, State> {
         onCompleted={this.onCompleted}
         onError={this.onError}
       >
-        {loginMutation => (
-          <Form onSubmit={e => this.onSubmit(e, loginMutation)} noValidate>
+        {(loginMutation) => (
+          <Form onSubmit={(e) => this.onSubmit(e, loginMutation)} noValidate>
             <Container height={`${HALF}%`}>
-              <FormFields error={hasError} t={t} />
+              <FormFields t={t} />
               <PasswordRecovery t={t} />
               <SignUpButton t={t} />
               <SignInButton t={t} />
             </Container>
-            <ErrorToast
-              open={hasError}
-              onClose={() => this.setError('')}
-              message={hasError && t(error)}
-            />
           </Form>
         )}
       </Mutation>
@@ -92,14 +85,14 @@ function mapStateToProps(state) {
     const { email, password } = SignInForm.values;
     return {
       email,
-      password
+      password,
     };
   }
   return {
     initialValues: {
       email: '',
-      password: ''
-    }
+      password: '',
+    },
   };
 }
 
@@ -107,5 +100,6 @@ export default compose(
   connect(mapStateToProps),
   withTranslation(),
   withCookies,
-  reduxForm({ form: 'SignInForm' })
+  withToast,
+  reduxForm({ form: 'SignInForm' }),
 )(SignInForm);

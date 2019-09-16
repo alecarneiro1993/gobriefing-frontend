@@ -15,7 +15,7 @@ import './index.css';
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   combineReducers({ form: formReducer, ...reducers }),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 /* eslint-enable */
 render(
@@ -24,7 +24,7 @@ render(
       <App />
     </Provider>
   </CookiesProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

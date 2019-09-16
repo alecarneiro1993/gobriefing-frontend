@@ -1,5 +1,7 @@
 import { gql } from 'apollo-boost';
-import { isEqual, isEmpty, pickBy, keys, size } from 'lodash';
+import {
+  isEqual, isEmpty, pickBy, keys, size, set,
+} from 'lodash';
 import { isEmail } from 'validator';
 
 const fields = [
@@ -9,7 +11,7 @@ const fields = [
     required: true,
     name: 'firstName',
     label: 'pages.sign_up.fields.first_name',
-    key: 'sign_up_first_name'
+    key: 'sign_up_first_name',
   },
   {
     id: 'sign_up_last_name',
@@ -17,7 +19,7 @@ const fields = [
     required: true,
     name: 'lastName',
     label: 'pages.sign_up.fields.last_name',
-    key: 'sign_up_last_name'
+    key: 'sign_up_last_name',
   },
   {
     id: 'sign_up_nickname',
@@ -25,7 +27,7 @@ const fields = [
     required: true,
     name: 'nickname',
     label: 'pages.sign_up.fields.nickname',
-    key: 'sign_up_nickname'
+    key: 'sign_up_nickname',
   },
   {
     id: 'sign_up_email',
@@ -33,7 +35,7 @@ const fields = [
     required: true,
     name: 'email',
     label: 'pages.sign_up.fields.email',
-    key: 'sign_in_email'
+    key: 'sign_in_email',
   },
   {
     id: 'sign_up_password',
@@ -41,7 +43,7 @@ const fields = [
     required: true,
     name: 'password',
     label: 'pages.sign_up.fields.password',
-    key: 'sign_un_password'
+    key: 'sign_un_password',
   },
   {
     id: 'sign_up_password_confirmation',
@@ -49,8 +51,8 @@ const fields = [
     required: true,
     name: 'passwordConfirmation',
     label: 'pages.sign_up.fields.password_confirmation',
-    key: 'sign_up_password_confirmation'
-  }
+    key: 'sign_up_password_confirmation',
+  },
 ];
 
 const CREATE_USER_MUTATION = gql`
@@ -82,28 +84,30 @@ const CREATE_USER_MUTATION = gql`
 `;
 
 function validateFields(values) {
-  let error = {};
-  const emptyFields = keys(pickBy(values, value => isEmpty(value)));
+  const error = {};
+  const emptyFields = keys(pickBy(values, (value) => isEmpty(value)));
 
   if (!isEmpty(emptyFields)) {
-    error = { label: 'errors.users.required_fields', fields: emptyFields };
+    set(error, 'label', 'errors.users.required_fields');
+    set(error, 'fields', emptyFields);
+    set(error, 'type', 'error');
     return error;
   }
 
   const { email, password, passwordConfirmation } = values;
 
   if (!isEmail(email)) {
-    error = { label: 'errors.users.invalid_email_format', fields: ['email'] };
+    set(error, 'label', 'errors.users.invalid_email_format');
+    set(error, 'fields', ['email']);
+    set(error, 'type', 'error');
   } else if (size(password) < 6) {
-    error = {
-      label: 'errors.users.min_password_length',
-      fields: ['password']
-    };
+    set(error, 'label', 'errors.users.min_password_length');
+    set(error, 'fields', ['password']);
+    set(error, 'type', 'error');
   } else if (!isEqual(password, passwordConfirmation)) {
-    error = {
-      label: 'errors.users.passwords_match',
-      fields: ['password', 'passwordConfirmation']
-    };
+    set(error, 'label', 'errors.users.passwords_match');
+    set(error, 'fields', ['password', 'passwordConfirmation']);
+    set(error, 'type', 'error');
   }
   return error;
 }

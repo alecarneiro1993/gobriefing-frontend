@@ -7,7 +7,7 @@ const fields = [
     required: true,
     name: 'email',
     label: 'pages.sign_in.fields.email',
-    key: 'sign_in_email'
+    key: 'sign_in_email',
   },
   {
     id: 'sign_in_password',
@@ -15,8 +15,8 @@ const fields = [
     required: true,
     name: 'password',
     label: 'pages.sign_in.fields.password',
-    key: 'sign_in_password'
-  }
+    key: 'sign_in_password',
+  },
 ];
 
 const LOGIN_MUTATION = gql`

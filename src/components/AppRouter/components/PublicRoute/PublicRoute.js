@@ -23,13 +23,11 @@ function PublicRoute(props: Props) {
   return (
     <Route
       {...rest}
-      render={() =>
-        isAuthenticated && isRestricted ? (
-          <Redirect to={HOME_PATH} />
-        ) : (
-          <Component {...props} cookies={cookies} />
-        )
-      }
+      render={() => (isAuthenticated && isRestricted ? (
+        <Redirect to={HOME_PATH} />
+      ) : (
+        <Component {...props} cookies={cookies} />
+      ))}
     />
   );
 }

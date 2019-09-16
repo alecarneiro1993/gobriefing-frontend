@@ -35,12 +35,13 @@ export const ROW = 'row';
 export const ROW_REVERSE = 'row-reverse';
 
 // Colors
-export const WHITE = 'white';
-export const BLACK = 'black';
+export const WHITE = '#fff';
+export const BLACK = '#000';
 export const LIGHT_WHITE = '#E8E8E8';
 export const LIGHT_PURPLE = '#667eea';
 export const LIGHT_PINK = '#764ba2';
 export const DARK_RED = '#B80F0A';
+export const GREEN = '#43a047';
 
 // VARIANTS
 export const H1 = 'h1';

@@ -1,8 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Container, Row, Column, RobotoTypography } from 'custom_modules';
-import { CENTER, FULL, PRIMARY, OVERLINE } from 'utils/constants';
+import {
+  Container, Row, Column, RobotoTypography,
+} from 'custom_modules';
+import {
+  CENTER, FULL, PRIMARY, OVERLINE,
+} from 'utils/constants';
 
 import SignUpForm from './SignUpForm';
 

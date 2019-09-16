@@ -4,7 +4,7 @@ import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 
 import {
-  DARK_RED, RIGHT, TOP, ERROR, CENTER,
+  DARK_RED, RIGHT, TOP, CENTER,
 } from 'utils/constants/values';
 
 type Props = {};
@@ -12,7 +12,6 @@ type Props = {};
 function ErrorToast(props: Props) {
   return (
     <Snackbar
-      variant={ERROR}
       autoHideDuration={5000}
       anchorOrigin={{ horizontal: RIGHT, vertical: TOP }}
       ContentProps={{

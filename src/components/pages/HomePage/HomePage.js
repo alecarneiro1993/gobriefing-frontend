@@ -4,7 +4,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        Home{' '}
+        Home
+        {' '}
         <button onClick={() => this.props.cookies.set('token', '')}>
           Logout
         </button>
