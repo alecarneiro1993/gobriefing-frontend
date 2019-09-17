@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { Row, Column, OffsetColumn } from 'custom_modules/layout';
 import Button from 'custom_modules/elements/Button';
-import { SECONDARY, ROW_REVERSE } from 'utils/constants/values';
+import { LIGHT_PINK, ROW_REVERSE, CONTAINED } from 'utils/constants/values';
 import { SIGN_IN_PATH } from 'utils/constants/routes';
 
 function SignUpButton({ t }: { t: Function }) {
@@ -14,8 +14,8 @@ function SignUpButton({ t }: { t: Function }) {
       <OffsetColumn xs={2} sm={2} md={2} lg={2} xl={2} />
       <Column xs={4} sm={4} md={4} lg={4} xl={3}>
         <Button
-          variant="contained"
-          color={SECONDARY}
+          variant={CONTAINED}
+          color={LIGHT_PINK}
           component={Link}
           to={SIGN_IN_PATH}
           fullWidth

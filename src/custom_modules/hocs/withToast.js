@@ -4,21 +4,21 @@ import { isEmpty } from 'lodash';
 
 import { Toast } from '../alerts';
 
-const withToast = (WrappedComponent) => class extends React.Component {
+const withToast = WrappedComponent =>
+  class extends React.Component {
     state = { toast: {} };
 
-    handleToast = (toast) => {
+    handleToast = toast => {
       this.setState({ toast });
     };
 
     render() {
       const {
-        toast: { type, message },
+        toast: { type, message }
       } = this.state;
       return (
         <Box>
           <WrappedComponent {...this.props} handleToast={this.handleToast} />
-          ,
           <Toast
             open={!isEmpty(message)}
             onClose={() => this.setState({ toast: {} })}
@@ -28,6 +28,6 @@ const withToast = (WrappedComponent) => class extends React.Component {
         </Box>
       );
     }
-};
+  };
 
 export default withToast;
